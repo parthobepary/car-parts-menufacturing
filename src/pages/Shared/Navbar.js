@@ -6,10 +6,10 @@ import "../AllCss/Navbar.css";
 const Navbar = ({ children }) => {
   return (
     <div>
-      <div className="drawer drawer-end">
+      <div className="drawer drawer-end ">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
-          <div className="w-full navbar bg-base-300">
+          <div className="w-full navbar bg-base-300 py-6">
             <div className="flex-1 px-2 mx-2 ">
               <div>
                 <img className="nav-img" src={titleLogog} alt="" />
