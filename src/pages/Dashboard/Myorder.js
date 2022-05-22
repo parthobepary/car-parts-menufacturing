@@ -16,11 +16,10 @@ const Myorder = () => {
   if (isloading) {
     return <Loading></Loading>;
   }
-  console.log(data);
   return (
     <div>
       {data?.map((d) => (
-        <Order key={d._id} orders={d}></Order>
+        <Order key={d._id} orders={d} refetch={refetch}></Order>
       ))}
     </div>
   );
