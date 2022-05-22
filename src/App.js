@@ -13,6 +13,7 @@ import Myorder from "./pages/Dashboard/Myorder";
 import Myprofile from "./pages/Dashboard/Myprofile";
 import Myreviews from "./pages/Dashboard/Myreviews";
 import Home from "./pages/Home/Home";
+import OrderModal from "./pages/Home/OrderModal";
 import Portfolio from "./pages/Portfolio/Portfolio";
 import Navbar from "./pages/Shared/Navbar";
 
@@ -63,6 +64,7 @@ function App() {
           <Route path="/blogs" element={<Blogs />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/ragister" element={<Ragister />}></Route>
+          <Route path="/ordermodal/:id" element={<OrderModal />}></Route>
         </Routes>
       </Navbar>
     </div>
