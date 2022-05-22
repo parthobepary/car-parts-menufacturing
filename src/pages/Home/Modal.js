@@ -12,6 +12,7 @@ const Modal = ({ name }) => {
     console.log(data);
     reset();
   };
+  console.log(user);
 
   if (loading) {
     return <Loading />;

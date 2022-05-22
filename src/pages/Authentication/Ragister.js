@@ -1,7 +1,8 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import {
-    useCreateUserWithEmailAndPassword,
-    useUpdateProfile
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
@@ -9,6 +10,7 @@ import auth from "../../firebase.init";
 import Loading from "../Shared/Loading";
 
 const Ragister = () => {
+  const [imgUrl, setImgUrl] = useState("");
   const {
     register,
     formState: { errors },
@@ -22,8 +24,8 @@ const Ragister = () => {
 
   const navigate = useNavigate();
   //custom hook
-  if(user){
-    navigate('/home')
+  if (user) {
+    navigate("/home");
   }
 
   let errorMessage;
@@ -32,9 +34,9 @@ const Ragister = () => {
     const email = data.email;
     const pass = data.password;
     await createUserWithEmailAndPassword(email, pass);
-    await updateProfile({ displayName: data?.name });
+    await updateProfile({ displayName: data?.name, photoURL: imgUrl });
     alert("Updated profile");
-    navigate("/appointment");
+    navigate("/home");
   };
 
   if (error || uperror) {
@@ -46,6 +48,27 @@ const Ragister = () => {
   if (loading || updating) {
     return <Loading></Loading>;
   }
+  //imgbb
+
+  const handelImagUpload = (e) => {
+    const image = e.target.files[0];
+
+    const fromData = new FormData();
+    fromData.set("image", image);
+    axios
+      .post(
+        "https://api.imgbb.com/1/upload?key=79fd0b725c9bb9b85e875f16c38c1622",
+        fromData
+      )
+      .then((res) => {
+        setImgUrl(res.data.data.display_url);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  console.log(imgUrl);
 
   return (
     <div>
@@ -71,6 +94,13 @@ const Ragister = () => {
                         message: "name is required",
                       },
                     })}
+                  />
+                  <input
+                    className="input input-bordered w-full max-w-xs mt-6"
+                    type="file"
+                    name="imgUrl"
+                    id=""
+                    onChange={handelImagUpload}
                   />
                   <label class="label">
                     {errors.name?.type === "required" && (

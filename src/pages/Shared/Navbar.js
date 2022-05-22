@@ -13,7 +13,7 @@ const Navbar = ({ children }) => {
   };
   return (
     <div>
-      <div className="drawer drawer-end ">
+      <div className="drawer drawer-end">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
           <div className="w-full navbar bg-base-300 py-6">
@@ -44,7 +44,7 @@ const Navbar = ({ children }) => {
             </div>
 
             <div className="flex-none hidden lg:block">
-              <ul className="menu menu-horizontal">
+              <ul className="menu menu-horizontal flex items-center">
                 <li>
                   <NavLink className="rounded-md" to="/home">
                     Home
@@ -53,19 +53,28 @@ const Navbar = ({ children }) => {
                 <li>
                   {user && (
                     <NavLink className="rounded-md" to="/dashboard">
-                      Dash board
+                      Dashboard
                     </NavLink>
                   )}
                 </li>
                 <li>
                   <NavLink className="rounded-md" to="/portfolio">
-                    My portfolio
+                    Portfolio
                   </NavLink>
                 </li>
                 <li>
                   <NavLink className="rounded-md" to="/blogs">
                     Blogs
                   </NavLink>
+                </li>
+                <li>
+                  {user && (
+                    <img
+                      className="w-16 rounded-full"
+                      src={user.photoURL}
+                      alt="img"
+                    />
+                  )}
                 </li>
                 <li>
                   {user ? (
@@ -105,6 +114,15 @@ const Navbar = ({ children }) => {
             </li>
             <li>
               <NavLink to="/blogs">Blogs</NavLink>
+            </li>
+            <li>
+              {user && (
+                <img
+                  className="w-16 rounded-full"
+                  src={user.photoURL}
+                  alt="img"
+                />
+              )}
             </li>
             <li>
               {user ? (
