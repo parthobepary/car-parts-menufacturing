@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const useAdmin = (user) => {
-  const [admin, setAdmin] = useState(false);
+  const [admin, setAdmin] = useState(true);
   /* const[adminLoading, setAdminLoadin] = useState(true);
   useEffect(() => {
     const email = user?.email;

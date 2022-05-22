@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Loading from "../Shared/Loading";
 
 const Tool = ({ isLoading, tool }) => {
-  const  { id, name, img, discription, availableQuentity, perunitPrice } = tool
+  const  { _id, name, img, discription, availableQuentity, perunitPrice } = tool
   const navigated = useNavigate();
 
   if (isLoading) {
@@ -33,7 +33,7 @@ const Tool = ({ isLoading, tool }) => {
           </div>
           <div className="card-actions">
             <button
-              onClick={() => navigatToModal(id)}
+              onClick={() => navigatToModal(_id)}
               className="btn btn-primary px-20"
             >
               purchase now

@@ -1,13 +1,37 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState } from "react";
+import { useParams } from "react-router-dom";
+import Modal from "./Modal";
 
 const OrderModal = () => {
-    const { id } = useParams();
-    return (
-        <div className='mt-32'>
-            <h1>oredr modal : {id}</h1>
+  const { id } = useParams();
+  const [details, setDetails] = useState([]);
+
+  fetch(`http://localhost:5000/tools/${id}`)
+    .then((res) => res.json())
+    .then((data) => setDetails(data[0]));
+
+  const { name, img, discription, availableQuentity, perunitPrice } = details;
+
+  return (
+    <div className="my-32 container mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 items-center">
+        <div className="">
+          <img className="w-3/4 text-center rounded-lg" src={img} alt="" />
         </div>
-    );
+        <div>
+          <h1>Product name: {name}</h1>
+          <p>{discription}</p>
+          <h4>Available product: {availableQuentity}</h4>
+          <h4>Per/Price: {perunitPrice}</h4>
+          <p className="text-red-600">Minimum order more then 500</p>
+          <label for="my-modal-3" class="btn modal-button btn-primary px-32">
+            Purches
+          </label>
+        </div>
+      </div>
+      {<Modal />}
+    </div>
+  );
 };
 
 export default OrderModal;

@@ -5,7 +5,7 @@ import Tool from "./Tool";
 
 const Tools = () => {
   const { data, isLoading, refetch } = useQuery("tools", () =>
-    fetch("service.json").then((res) => res.json())
+    fetch("http://localhost:5000/tools").then((res) => res.json())
   );
   if (isLoading) {
     return <Loading></Loading>;
