@@ -8,7 +8,7 @@ const BusinessSummery = () => {
         <h4 className=" text-2xl mt-2">Try to understand customer expectation</h4>
       </div>
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-3/4 mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-3/4 mx-auto gap-4">
           <div className="bg-slate-700 mr-10 rounded-2xl text-white  py-5 px-3 ">
             <div>
               <svg
