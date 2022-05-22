@@ -8,11 +8,17 @@ const Modal = ({ name }) => {
   console.log(name);
   const [user, loading] = useAuthState(auth);
   const { register, handleSubmit, reset } = useForm();
+
   const onSubmit = (data) => {
-    console.log(data);
+    fetch("http://localhost:5000/order", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
     reset();
   };
-  console.log(user);
 
   if (loading) {
     return <Loading />;
