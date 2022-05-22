@@ -11,7 +11,6 @@ const Reviews = () => {
   if (isloading) {
     return <Loading></Loading>;
   }
-  console.log(data);
   return (
     <div>
       <div className="px-20 mb-10">
@@ -20,7 +19,7 @@ const Reviews = () => {
       </div>
       <div>
         {data?.map((d) => (
-          <Review key={d._id} review={d}></Review>
+          <Review key={d.id} review={d}></Review>
         ))}
       </div>
     </div>

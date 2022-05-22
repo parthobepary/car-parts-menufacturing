@@ -11,17 +11,17 @@ const Banner = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-center container mx-auto gap-4">
         <div>
           {/* <img className="w-full h-96 rounded-md" src={img} alt="" /> */}
-          <div class="carousel carousel-center rounded-box">
-            <div class="carousel-item">
+          <div className ="carousel carousel-center rounded-box">
+            <div className ="carousel-item">
               <img src={img1} alt="Pizza" />
             </div>
-            <div class="carousel-item">
+            <div className ="carousel-item">
               <img src={img2} alt="Pizza" />
             </div>
-            <div class="carousel-item">
+            <div className ="carousel-item">
               <img src={img3} alt="Pizza" />
             </div>
-            <div class="carousel-item">
+            <div className ="carousel-item">
               <img src={img4} alt="Pizza" />
             </div>
           </div>
