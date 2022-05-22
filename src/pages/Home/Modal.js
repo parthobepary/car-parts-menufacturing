@@ -4,15 +4,18 @@ import { useForm } from "react-hook-form";
 import auth from "../../firebase.init";
 import Loading from "../Shared/Loading";
 
-const Modal = () => {
+const Modal = ({ name }) => {
+  console.log(name);
   const [user, loading] = useAuthState(auth);
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const { register, handleSubmit, reset } = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+    reset();
+  };
 
-  if(loading){
-      return <Loading />
+  if (loading) {
+    return <Loading />;
   }
-  console.log(user.displayName);
 
   return (
     <div>
@@ -33,35 +36,45 @@ const Modal = () => {
               <form onSubmit={handleSubmit(onSubmit)}>
                 <input
                   value={user?.displayName}
-                  className="mb-3 input input-bordered w-full"
+                  className="mb-3 input input-bordered w-full text-center"
                   {...register("name")}
                 />
                 <br />
                 <input
-                  className="mb-3 input input-bordered w-full"
+                  value={user?.email}
+                  className="mb-3 input input-bordered w-full text-center"
                   {...register("email")}
                 />
                 <br />
                 <input
-                  className="mb-3 input input-bordered w-full"
+                  value={name}
+                  className="mb-3 input input-bordered w-full text-center"
+                  {...register("productName")}
+                />
+                <br />
+                <input
+                  placeholder="Addresss"
+                  className="mb-3 input input-bordered w-full text-center"
                   type="text"
                   {...register("address")}
                 />
                 <br />
                 <input
-                  className="mb-3 input input-bordered w-full"
-                  type="text"
-                  {...register("address")}
+                  placeholder="phone"
+                  className="mb-3 input input-bordered w-full text-center"
+                  type="number"
+                  {...register("phone")}
                 />
                 <br />
                 <input
-                  className="mb-3 input input-bordered w-full"
+                  placeholder="Enter your quantity"
+                  className="mb-3 input input-bordered w-full text-center"
                   type="number"
                   {...register("quntity")}
                 />
                 <br />
                 <input
-                  className="mb-3 input input-bordered w-full"
+                  className="mb-3 input input-bordered w-full text-center"
                   type=""
                   {...register("total")}
                 />

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Modal from "./Modal";
 
@@ -6,9 +6,11 @@ const OrderModal = () => {
   const { id } = useParams();
   const [details, setDetails] = useState([]);
 
-  fetch(`http://localhost:5000/tools/${id}`)
-    .then((res) => res.json())
-    .then((data) => setDetails(data[0]));
+  useEffect(() => {
+    fetch(`http://localhost:5000/tools/${id}`)
+      .then((res) => res.json())
+      .then((data) => setDetails(data[0]));
+  }, [id]);
 
   const { name, img, discription, availableQuentity, perunitPrice } = details;
 
@@ -29,7 +31,7 @@ const OrderModal = () => {
           </label>
         </div>
       </div>
-      {<Modal />}
+      {<Modal name={name} />}
     </div>
   );
 };
