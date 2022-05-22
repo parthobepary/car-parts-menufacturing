@@ -1,0 +1,54 @@
+.login-box {
+  background-color: rgb(9, 51, 53);
+  border-radius: 5px;
+  padding: 40px 15px;
+  margin: 40px 0;
+  width: 50%;
+}
+.horizantal-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.horizantal-line p {
+  margin: 0 15px;
+}
+.left,
+.right {
+  width: 220px;
+  height: 2px;
+  background-color: beige;
+}
+.social-login button {
+  padding: 10px 40px;
+  border-radius: 10px;
+}
+.social-login img {
+  background: transparent;
+  border-radius: 20px;
+  margin-right: 15px;
+}
+.span {
+  text-decoration: underline;
+  color: yellow;
+  cursor: pointer;
+}
+.parend {
+  position: relative;
+}
+.child {
+  position: absolute;
+  top: 10px;
+  color: black;
+  right: 10px;
+  cursor: pointer;
+}
+@media screen and (max-width: 992px) {
+  .login-box {
+    width: 100%;
+  }
+  .social-login button {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+}

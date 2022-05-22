@@ -1,9 +1,16 @@
+import { signOut } from "firebase/auth";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { NavLink } from "react-router-dom";
 import titleLogog from "../../assets/icon/title logo.jpg";
+import auth from "../../firebase.init";
 import "../AllCss/Navbar.css";
 
 const Navbar = ({ children }) => {
+  const [user] = useAuthState(auth);
+  const logout = () => {
+    signOut(auth);
+  };
   return (
     <div>
       <div className="drawer drawer-end ">
@@ -44,9 +51,11 @@ const Navbar = ({ children }) => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="rounded-md" to="/dashboard">
-                    Dash board
-                  </NavLink>
+                  {user && (
+                    <NavLink className="rounded-md" to="/dashboard">
+                      Dash board
+                    </NavLink>
+                  )}
                 </li>
                 <li>
                   <NavLink className="rounded-md" to="/portfolio">
@@ -59,9 +68,19 @@ const Navbar = ({ children }) => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="rounded-md" to="login">
-                    Login
-                  </NavLink>
+                  {user ? (
+                    <button
+                      onClick={logout}
+                      className="btn btn-primary rounded-md"
+                    >
+                      Signout
+                    </button>
+                  ) : (
+                    <NavLink className="rounded-md" to="login">
+                      {" "}
+                      Login{" "}
+                    </NavLink>
+                  )}
                 </li>
               </ul>
             </div>
@@ -75,7 +94,11 @@ const Navbar = ({ children }) => {
               <NavLink to="/home">Home</NavLink>
             </li>
             <li>
-              <NavLink to="/dashboard">Dash board</NavLink>
+              {user && (
+                <NavLink className="rounded-md" to="/dashboard">
+                  Dash board
+                </NavLink>
+              )}
             </li>
             <li>
               <NavLink to="/portfolio">My portfolio</NavLink>
@@ -84,7 +107,16 @@ const Navbar = ({ children }) => {
               <NavLink to="/blogs">Blogs</NavLink>
             </li>
             <li>
-              <NavLink to="login">Login</NavLink>
+              {user ? (
+                <button onClick={logout} className="btn btn-primary rounded-md">
+                  Signout
+                </button>
+              ) : (
+                <NavLink className="rounded-md" to="login">
+                  {" "}
+                  Login{" "}
+                </NavLink>
+              )}
             </li>
           </ul>
         </div>
