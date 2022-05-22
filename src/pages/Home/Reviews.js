@@ -5,7 +5,7 @@ import Review from "./Review";
 
 const Reviews = () => {
   const { data, isloading, refetch } = useQuery("review", () =>
-    fetch("review.json").then((res) => res.json())
+    fetch("http://localhost:5000/reviews").then((res) => res.json())
   );
 
   if (isloading) {
@@ -18,7 +18,7 @@ const Reviews = () => {
         <hr className="bg-purple-500 h-1" />
       </div>
       <div>
-        {data?.map((d) => (
+        {data?.slice(0,3).map((d) => (
           <Review key={d.id} review={d}></Review>
         ))}
       </div>
