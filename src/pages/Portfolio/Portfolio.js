@@ -1,9 +1,12 @@
 import React from 'react';
+import Aboutme from './Aboutme';
+import Education from './Education';
 
 const Portfolio = () => {
     return (
         <div>
-            <h1>portfolio</h1>
+            <Aboutme />
+            <Education />
         </div>
     );
 };
