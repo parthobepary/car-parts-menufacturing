@@ -96,7 +96,7 @@ const Education = () => {
                 Dhaka International univercity, dhaka{" "}
               </p>
               <button className="btn btn-xs btn-secondary">Science</button>{" "}
-              <button className="btn btn-xs btn-accent">4.57</button>
+              <button className="btn btn-xs btn-accent">3.57</button>
             </div>
           </div>
         </div>
