@@ -18,7 +18,8 @@ const Tools = () => {
         </h1>
         <hr className="bg-purple-500 h-1" />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+      >
         {data.map((d) => (
           <Tool key={d.id} tool={d} isLoading={isLoading}></Tool>
         ))}

@@ -11,22 +11,26 @@ const Banner = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-center container mx-auto gap-4">
         <div>
           {/* <img className="w-full h-96 rounded-md" src={img} alt="" /> */}
-          <div className ="carousel carousel-center rounded-box">
-            <div className ="carousel-item">
+          <div className="carousel carousel-center rounded-box">
+            <div className="carousel-item">
               <img src={img1} alt="Pizza" />
             </div>
-            <div className ="carousel-item">
+            <div className="carousel-item">
               <img src={img2} alt="Pizza" />
             </div>
-            <div className ="carousel-item">
+            <div className="carousel-item">
               <img src={img3} alt="Pizza" />
             </div>
-            <div className ="carousel-item">
+            <div className="carousel-item">
               <img src={img4} alt="Pizza" />
             </div>
           </div>
         </div>
-        <div>
+        <div
+          data-aos="fade-down"
+          data-aos-easing="linear"
+          data-aos-duration="1500"
+        >
           <p className="text-white">
             Tata Motors Original Parts, when used, ensure an optimum ownership
             cost of the vehicle and in a developing country like ours, road

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Loading from "../Shared/Loading";
 
 const Tool = ({ isLoading, tool }) => {
-  const  { _id, name, img, discription, availableQuentity, perunitPrice } = tool
+  const { _id, name, img, discription, availableQuentity, perunitPrice } = tool;
   const navigated = useNavigate();
 
   if (isLoading) {

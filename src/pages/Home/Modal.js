@@ -83,7 +83,7 @@ const Modal = ({ name, availableQuentity }) => {
                   placeholder="product quantity"
                   className="mb-3 input input-bordered w-full text-center"
                   type="number"
-                  {...register("quntity", { min: 500, max: 550 })}
+                  {...register("quntity", { min: 500, max: availableQuentity })}
                 />
                 {errors.quntity && (
                   <p className="text-red-800 font-bold">
