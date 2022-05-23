@@ -31,7 +31,7 @@ const OrderModal = () => {
           </label>
         </div>
       </div>
-      {<Modal name={name} />}
+      {<Modal name={name} availableQuentity={availableQuentity} />}
     </div>
   );
 };
