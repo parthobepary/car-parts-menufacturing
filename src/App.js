@@ -12,6 +12,7 @@ import RequerUser from "./pages/Authentication/RequerUser";
 import Blogs from "./pages/Blogs/Blogs";
 import Addproduct from "./pages/Dashboard/Addproduct";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import EditProfile from "./pages/Dashboard/EditProfile";
 import Makeadmin from "./pages/Dashboard/Makeadmin";
 import Manageorder from "./pages/Dashboard/Manageorder";
 import Myorder from "./pages/Dashboard/Myorder";
@@ -73,6 +74,7 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/ragister" element={<Ragister />}></Route>
           <Route path="/ordermodal/:id" element={<OrderModal />}></Route>
+          <Route path="/profile/:id" element={<EditProfile />}></Route>
         </Routes>
         <ToastContainer />
       </Navbar>
