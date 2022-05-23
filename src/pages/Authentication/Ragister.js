@@ -7,6 +7,7 @@ import {
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
+import useToken from "../../hooks/useToken";
 import Loading from "../Shared/Loading";
 
 const Ragister = () => {
@@ -23,6 +24,9 @@ const Ragister = () => {
   const [updateProfile, updating, uperror] = useUpdateProfile(auth);
 
   const navigate = useNavigate();
+
+  //custom hook
+  const [token] = useToken(user);
   //custom hook
   if (user) {
     navigate("/home");

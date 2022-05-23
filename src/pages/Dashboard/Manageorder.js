@@ -25,7 +25,7 @@ const Manageorder = () => {
       </div>
       <div>
           {
-              data.map(d=> <Adminorder key={d._id} order={d}></Adminorder>)
+              data?.map(d=> <Adminorder key={d._id} order={d}></Adminorder>)
           }
       </div>
     </div>

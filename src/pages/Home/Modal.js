@@ -54,7 +54,7 @@ const Modal = ({ name }) => {
                 />
                 <br />
                 <input
-                  value={name}
+                  placeholder="re type product name"
                   className="mb-3 input input-bordered w-full text-center"
                   {...register("productName")}
                 />
