@@ -10,6 +10,7 @@ import useToken from "../../hooks/useToken";
 import Loading from "../Shared/Loading";
 
 const Login = () => {
+ 
   const navigate = useNavigate();
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
@@ -26,7 +27,7 @@ const Login = () => {
   const [signInWithEmailAndPassword, emaiuser, emailloading, emailerror] =
     useSignInWithEmailAndPassword(auth);
 
-  const [token] = useToken(googleuser);
+  const [token] = useToken(googleuser || emaiuser);
 
   const googleLogin = () => {
     signInWithGoogle();
@@ -51,7 +52,7 @@ const Login = () => {
   if (googleloading || emailloading) {
     return <Loading></Loading>;
   }
-  if (emaiuser || googleuser) {
+  if (token) {
     navigate("/home");
   }
 

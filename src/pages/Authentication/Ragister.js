@@ -40,8 +40,11 @@ const Ragister = () => {
     await createUserWithEmailAndPassword(email, pass);
     await updateProfile({ displayName: data?.name, photoURL: imgUrl });
     alert("Updated profile");
-    navigate("/home");
   };
+
+  if (token) {
+    navigate("/home");
+  }
 
   if (error || uperror) {
     errorMessage = (

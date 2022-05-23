@@ -9,7 +9,12 @@ const Myorder = () => {
   const [user] = useAuthState(auth);
 
   const { data, isloading, refetch } = useQuery("review", () =>
-    fetch(`http://localhost:5000/order/${user?.email}`).then((res) =>
+    fetch(`http://localhost:5000/order/${user?.email}`,{
+      method:"GET",
+      headers:{
+        "authorization": `Bearer ${localStorage.getItem('token')}`
+      }
+    }).then((res) =>
       res.json()
     )
   );
