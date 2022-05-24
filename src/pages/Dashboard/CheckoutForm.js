@@ -1,35 +1,55 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-const CheckoutForm = () => {
-    const stripe = useStripe();
+const CheckoutForm = ({ order }) => {
+  const total = order?.total;
+  const stripe = useStripe();
   const elements = useElements();
-  const[cardError, setCarsError] = useState('')
+  const [cardError, setCarsError] = useState("");
+  const [clientSecret, setClientSecret] = useState("");
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+  useEffect(() => {
+    fetch("http://localhost:5000/create-payment-intent", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({total})
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if(data?.clientSecret){
+            setClientSecret(data.clientSecret)
+        }
+      });
+  }, [total]);
 
-        if (!stripe || !elements) {
-            return;
-          }
-      
-          const card = elements.getElement(CardElement);
-      
-          if (card == null) {
-            return;
-          }
-      
-          const {error, paymentMethod} = await stripe.createPaymentMethod({
-            type: 'card',
-            card
-          });
-      
-          if (error) {
-            setCarsError(error.message)
-          } else {
-            setCarsError('')
-          }
+  console.log(clientSecret);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!stripe || !elements) {
+      return;
     }
+
+    const card = elements.getElement(CardElement);
+
+    if (card == null) {
+      return;
+    }
+
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: "card",
+      card,
+    });
+
+    if (error) {
+      setCarsError(error.message);
+    } else {
+      setCarsError("");
+    }
+  };
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -49,7 +69,11 @@ const CheckoutForm = () => {
             },
           }}
         />
-        <button className="btn btn-xs btn-success px-6 mt-6" type="submit" disabled={!stripe}>
+        <button
+          className="btn btn-xs btn-success px-6 mt-6"
+          type="submit"
+          disabled={!stripe || !clientSecret}
+        >
           Pay
         </button>
       </form>
