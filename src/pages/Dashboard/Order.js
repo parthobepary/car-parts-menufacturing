@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const Order = ({ orders, refetch }) => {
-  const { _id, name, productName, quntity, total } = orders;
+  const { _id, name, productName, quntity, total, paid } = orders;
   const navigate = useNavigate()
 
   //delete on
@@ -36,7 +36,7 @@ const Order = ({ orders, refetch }) => {
           >
             delete
           </button>
-          { total && <button
+          { (total && !paid) && <button
             onClick={paymentBtn}
             className="btn btn-xs ml-4 bg-red-600 text-white"
           >

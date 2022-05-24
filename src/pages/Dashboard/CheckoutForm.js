@@ -3,10 +3,14 @@ import React, { useEffect, useState } from "react";
 
 const CheckoutForm = ({ order }) => {
   const total = order?.total;
+  const names = order?.name;
+  const email = order?.email;
   const stripe = useStripe();
   const elements = useElements();
   const [cardError, setCarsError] = useState("");
+  const [cardSucess, setCarsSuccess] = useState("");
   const [clientSecret, setClientSecret] = useState("");
+  const [trangationId, setTrangationId] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:5000/create-payment-intent", {
@@ -14,12 +18,12 @@ const CheckoutForm = ({ order }) => {
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify({total})
+      body: JSON.stringify({ total }),
     })
       .then((res) => res.json())
       .then((data) => {
-        if(data?.clientSecret){
-            setClientSecret(data.clientSecret)
+        if (data?.clientSecret) {
+          setClientSecret(data.clientSecret);
         }
       });
   }, [total]);
@@ -48,6 +52,45 @@ const CheckoutForm = ({ order }) => {
       setCarsError(error.message);
     } else {
       setCarsError("");
+    }
+
+    //confirm card payment
+    const { paymentIntent, intentError } = await stripe.confirmCardPayment(
+      clientSecret,
+      {
+        payment_method: {
+          card: card,
+          billing_details: {
+            name: names,
+            email: email,
+          },
+        },
+      }
+    );
+    if (intentError) {
+      setCarsError(intentError.message);
+      cardSucess("");
+    } else {
+      setClientSecret("");
+      setTrangationId(paymentIntent.id);
+      console.log(paymentIntent);
+      setCarsSuccess("your payment complete");
+
+      //update server
+      const payment = {
+          payment: order._id,
+          transactionId: paymentIntent.id
+      }
+
+      fetch(`http://localhost:5000/order/${order._id}`,{
+          method:"PUT",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(payment),
+      })
+        .then((res) => res.json())
+        .then((data) => console.log(data));
     }
   };
   return (
@@ -78,6 +121,12 @@ const CheckoutForm = ({ order }) => {
         </button>
       </form>
       {cardError && <p className="text-red-600">{cardError}</p>}
+      {cardSucess && (
+        <div className="text-green-600">
+          <p>{cardSucess}</p>
+          <p>{trangationId}</p>
+        </div>
+      )}
     </div>
   );
 };
