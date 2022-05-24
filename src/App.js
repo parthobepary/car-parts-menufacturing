@@ -18,6 +18,7 @@ import Manageorder from "./pages/Dashboard/Manageorder";
 import Myorder from "./pages/Dashboard/Myorder";
 import Myprofile from "./pages/Dashboard/Myprofile";
 import Myreviews from "./pages/Dashboard/Myreviews";
+import Payment from "./pages/Dashboard/Payment";
 import Home from "./pages/Home/Home";
 import OrderModal from "./pages/Home/OrderModal";
 import Portfolio from "./pages/Portfolio/Portfolio";
@@ -75,6 +76,7 @@ function App() {
           <Route path="/ragister" element={<Ragister />}></Route>
           <Route path="/ordermodal/:id" element={<OrderModal />}></Route>
           <Route path="/profile/:id" element={<EditProfile />}></Route>
+          <Route path="/payment/:id" element={<Payment />}></Route>
         </Routes>
         <ToastContainer />
       </Navbar>

@@ -1,7 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Order = ({ orders, refetch }) => {
   const { _id, name, productName, quntity, total } = orders;
+  const navigate = useNavigate()
 
   //delete on
   const delteOrder = (id) => {
@@ -13,6 +15,11 @@ const Order = ({ orders, refetch }) => {
         refetch();
       });
   };
+
+  const paymentBtn = () => {
+
+    navigate(`/payment/${_id}`)
+  }
 
   return (
     <div>
@@ -29,6 +36,12 @@ const Order = ({ orders, refetch }) => {
           >
             delete
           </button>
+          { total && <button
+            onClick={paymentBtn}
+            className="btn btn-xs ml-4 bg-red-600 text-white"
+          >
+            Pay
+          </button>}
         </p>
       </div>
     </div>

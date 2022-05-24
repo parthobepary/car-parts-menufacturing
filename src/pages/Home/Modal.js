@@ -4,8 +4,8 @@ import { useForm } from "react-hook-form";
 import auth from "../../firebase.init";
 import Loading from "../Shared/Loading";
 
-const Modal = ({ name, availableQuentity }) => {
-  console.log(name);
+const Modal = ({ name, availableQuentity, perunitPrice }) => {
+  console.log(perunitPrice);
   const [user, loading] = useAuthState(auth);
   const {
     register,
@@ -80,11 +80,19 @@ const Modal = ({ name, availableQuentity }) => {
                 />
                 <br />
                 <input
+                  value={perunitPrice}
+                  className="mb-3 input input-bordered w-full text-center"
+                  type="number"
+                  {...register("total")}
+                />
+                <br />
+                <input
                   placeholder="product quantity"
                   className="mb-3 input input-bordered w-full text-center"
                   type="number"
                   {...register("quntity", { min: 500, max: availableQuentity })}
                 />
+                <br />
                 {errors.quntity && (
                   <p className="text-red-800 font-bold">
                     minimum order 500 and max order {availableQuentity}
