@@ -2,13 +2,15 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const Order = ({ orders, refetch }) => {
-  const { _id, name, productName, quntity, total, paid } = orders;
-  const navigate = useNavigate()
+  const { _id, name, productName, quntity, total, paid, transactionId } =
+    orders;
+  console.log(orders);
+  const navigate = useNavigate();
 
   //delete on
   const delteOrder = (id) => {
-    fetch(`http://localhost:5000/order/${id}`,{
-        method: 'DELETE'
+    fetch(`http://localhost:5000/order/${id}`, {
+      method: "DELETE",
     })
       .then((res) => res.json())
       .then((data) => {
@@ -17,9 +19,8 @@ const Order = ({ orders, refetch }) => {
   };
 
   const paymentBtn = () => {
-
-    navigate(`/payment/${_id}`)
-  }
+    navigate(`/payment/${_id}`);
+  };
 
   return (
     <div>
@@ -30,18 +31,30 @@ const Order = ({ orders, refetch }) => {
           <span className="mx-4 mb-3">Product name: {productName}</span>
           <span className="mx-4 mb-3">Quantity: {quntity}</span>
           <span>Total: {total}</span>{" "}
-          <button
+          <button disabled={paid}
             onClick={() => delteOrder(_id)}
             className="btn btn-xs ml-4 bg-red-600 text-white"
           >
             delete
           </button>
-          { (total && !paid) && <button
-            onClick={paymentBtn}
-            className="btn btn-xs ml-4 bg-red-600 text-white"
-          >
-            Pay
-          </button>}
+          {total && !paid && (
+            <button
+              onClick={paymentBtn}
+              className="btn btn-xs ml-4 bg-red-600 text-white"
+            >
+              Pay
+            </button>
+          )}
+          {total && paid && (
+            <span className=" ml-4 bg-green-600 text-white px-4 py-1 rounded-lg">
+              paid
+            </span>
+          )}
+          {total && paid && (
+            <span className=" ml-4 bg-green-600 text-white px-4 py-1 rounded-lg">
+              {transactionId}
+            </span>
+          )}
         </p>
       </div>
     </div>
