@@ -27,11 +27,13 @@ const Dashboard = () => {
             <li>
               {!admin && <Link to="/dashboard">My order</Link>}
               {!admin && <Link to="/dashboard/myreview">Add review</Link>}
-              {!admin && <Link to="/dashboard/myprofile">My profile</Link>}
+              <Link to="/dashboard/myprofile">My profile</Link>
               {admin && <Link to="/dashboard/mangaeorder">Manage order</Link>}
               {admin && <Link to="/dashboard/makeadmin">Make admin</Link>}
               {admin && <Link to="/dashboard/addproduct">Add product</Link>}
-              {admin && <Link to="/dashboard/manageproduct">Manage product</Link>}
+              {admin && (
+                <Link to="/dashboard/manageproduct">Manage product</Link>
+              )}
             </li>
           </ul>
         </div>

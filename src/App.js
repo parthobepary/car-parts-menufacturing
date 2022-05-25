@@ -24,6 +24,7 @@ import Home from "./pages/Home/Home";
 import OrderModal from "./pages/Home/OrderModal";
 import Portfolio from "./pages/Portfolio/Portfolio";
 import Navbar from "./pages/Shared/Navbar";
+import PagenotFount from "./pages/Shared/PagenotFount";
 
 function App() {
   useEffect(() => {
@@ -86,6 +87,7 @@ function App() {
           <Route path="/ordermodal/:id" element={<OrderModal />}></Route>
           <Route path="/profile/:id" element={<EditProfile />}></Route>
           <Route path="/payment/:id" element={<Payment />}></Route>
+          <Route path="/*" element={<PagenotFount />}></Route>
         </Routes>
         <ToastContainer />
       </Navbar>
