@@ -19,7 +19,7 @@ const Reviews = () => {
       </div>
       <div>
         {data?.slice(0,3).map((d) => (
-          <Review key={d.id} review={d}></Review>
+          <Review key={d._id} review={d}></Review>
         ))}
       </div>
     </div>

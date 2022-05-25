@@ -26,7 +26,7 @@ const OrderModal = () => {
           <h4>Available product: {availableQuentity}</h4>
           <h4>Per/Price: {perunitPrice}</h4>
           <p className="text-red-600">Minimum order more then 500</p>
-          <label for="my-modal-3" class="btn modal-button btn-primary px-32">
+          <label for="my-modal-3" className="btn modal-button btn-primary px-32">
             Purches
           </label>
         </div>

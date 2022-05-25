@@ -1,7 +1,7 @@
 import React from "react";
 import { toast } from "react-toastify";
 
-const Alladmin = ({ refetch, user: { email, role } }) => {
+const Alladmin = ({ refetch, user: { email, role, _id } }) => {
   const makeAdmin = () => {
     fetch(`http://localhost:5000/user/admin/${email}`, {
       method: "PUT",
@@ -16,11 +16,24 @@ const Alladmin = ({ refetch, user: { email, role } }) => {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
         if (data.modifiedCount > 0) {
           toast.success("done");
           refetch();
         }
+      });
+  };
+
+  const deleteUser = (id) => {
+    fetch(`http://localhost:5000/user/${id}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        refetch();
       });
   };
 
@@ -37,7 +50,13 @@ const Alladmin = ({ refetch, user: { email, role } }) => {
         )}
       </td>
       <td>
-        <button className="btn btn-xs text-red-600">delete</button>
+        <button
+          onClick={() => deleteUser(_id)}
+          disabled={role === "admin"}
+          className="btn btn-xs text-red-600"
+        >
+          delete
+        </button>
       </td>
     </tr>
   );

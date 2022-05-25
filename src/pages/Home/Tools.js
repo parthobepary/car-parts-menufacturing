@@ -21,7 +21,7 @@ const Tools = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
       >
         {data.map((d) => (
-          <Tool key={d.id} tool={d} isLoading={isLoading}></Tool>
+          <Tool key={d._id} tool={d} isLoading={isLoading}></Tool>
         ))}
       </div>
     </div>

@@ -1,8 +1,8 @@
 import axios from "axios";
 import React, { useState } from "react";
 import {
-  useCreateUserWithEmailAndPassword,
-  useUpdateProfile
+    useCreateUserWithEmailAndPassword,
+    useUpdateProfile
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
@@ -80,21 +80,21 @@ const Ragister = () => {
   return (
     <div>
       <div className="flex h-screen justify-center items-center">
-        <div class="card w-96 bg-base-100 shadow-xl">
-          <div class="card-body">
-            <h2 class="text-center text-2xl font-bold">Sign in</h2>
+        <div className="card w-96 bg-base-100 shadow-xl">
+          <div className="card-body">
+            <h2 className="text-center text-2xl font-bold">Sign in</h2>
             <hr />
             <div>
               <form onSubmit={handleSubmit(onSubmit)}>
-                <div class="form-control w-full max-w-xs">
+                <div className="form-control w-full max-w-xs">
                   {/* name */}
-                  <label class="label">
-                    <span class="label-text-alt">Name</span>
+                  <label className="label">
+                    <span className="label-text-alt">Name</span>
                   </label>
                   <input
                     type="text"
                     placeholder="your name"
-                    class="input input-bordered w-full max-w-xs"
+                    className="input input-bordered w-full max-w-xs"
                     {...register("name", {
                       required: {
                         value: true,
@@ -109,21 +109,21 @@ const Ragister = () => {
                     id=""
                     onChange={handelImagUpload}
                   />
-                  <label class="label">
+                  <label className="label">
                     {errors.name?.type === "required" && (
-                      <span class="label-text-alt text-red-700">
+                      <span className="label-text-alt text-red-700">
                         {errors.name.message}
                       </span>
                     )}
                   </label>
                   {/* email */}
-                  <label class="label">
-                    <span class="label-text-alt">Email</span>
+                  <label className="label">
+                    <span className="label-text-alt">Email</span>
                   </label>
                   <input
                     type="email"
                     placeholder="your email"
-                    class="input input-bordered w-full max-w-xs"
+                    className="input input-bordered w-full max-w-xs"
                     {...register("email", {
                       required: {
                         value: true,
@@ -135,27 +135,27 @@ const Ragister = () => {
                       },
                     })}
                   />
-                  <label class="label">
+                  <label className="label">
                     {errors.email?.type === "required" && (
-                      <span class="label-text-alt text-red-700">
+                      <span className="label-text-alt text-red-700">
                         {errors.email.message}
                       </span>
                     )}
                     {errors.email?.type === "pattern" && (
-                      <span class="label-text-alt text-red-700">
+                      <span className="label-text-alt text-red-700">
                         {errors.email.message}
                       </span>
                     )}
                   </label>
                   {/* passsword */}
 
-                  <label class="label">
-                    <span class="label-text-alt">Password</span>
+                  <label className="label">
+                    <span className="label-text-alt">Password</span>
                   </label>
                   <input
                     type="password"
                     placeholder="your password"
-                    class="input input-bordered w-full max-w-xs"
+                    className="input input-bordered w-full max-w-xs"
                     {...register("password", {
                       required: {
                         value: true,
@@ -167,14 +167,14 @@ const Ragister = () => {
                       },
                     })}
                   />
-                  <label class="label">
+                  <label className="label">
                     {errors.password?.type === "required" && (
-                      <span class="label-text-alt text-red-700">
+                      <span className="label-text-alt text-red-700">
                         {errors.password.message}
                       </span>
                     )}
                     {errors.password?.type === "minLength" && (
-                      <span class="label-text-alt text-red-700">
+                      <span className="label-text-alt text-red-700">
                         {errors.password.message}
                       </span>
                     )}

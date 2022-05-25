@@ -5,15 +5,15 @@ import "../AllCss/protfolio.css";
 const Aboutme = () => {
   return (
     <div className="bg-slate-400 mt-32">
-      <div class="hero min-h-screen bg-base-200 px-32">
-        <div class="hero-content flex-col lg:flex-row-reverse">
-          <img src={pallob} class="max-w-sm rounded-lg shadow-2xl" alt="" />
+      <div className="hero min-h-screen bg-base-200 px-32">
+        <div className="hero-content flex-col lg:flex-row-reverse">
+          <img src={pallob} className="max-w-sm rounded-lg shadow-2xl" alt="" />
           <div className=" text-left mr-32">
-            <h1 class="text-5xl font-bold tracking-wider">PALLOB BISWAS</h1>
-            <h1 class="text-2xl font-bold tracking-wider my-3">
+            <h1 className="text-5xl font-bold tracking-wider">PALLOB BISWAS</h1>
+            <h1 className="text-2xl font-bold tracking-wider my-3">
               Fornt End Web Developer
             </h1>
-            <p class="py-6">
+            <p className="py-6">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur
               voluptas dolores dolore natus accusantium consectetur velit eos,
               illum harum ex explicabo! Quidem possimus doloribus suscipit sequi

@@ -18,7 +18,7 @@ const Addproduct = () => {
       },
       body: JSON.stringify(review),
     });
-    reset()
+    reset();
   };
 
   const handelImagUpload = (e) => {
@@ -41,44 +41,51 @@ const Addproduct = () => {
 
   console.log(imgUrl);
   return (
-    <div className="flex justify-center items-center">
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="bg-yellow-300 w-1/2 rounded-lg p-4 text-center"
-      >
-        <input
-          placeholder="your name"
-          class="input input-bordered w-4/5 my-3"
-          {...register("name")}
-        />
-        <br />
-        <input
-          placeholder="discription"
-          class="input input-bordered w-4/5"
-          {...register("discription")}
-        />
-        <br />
-        <input
-          placeholder="per unit price"
-          class="input input-bordered w-4/5 my-3"
-          {...register("perunitPrice")}
-        />
-        <br />
-        <input
-          placeholder="available quentity"
-          class="input input-bordered w-4/5"
-          {...register("availableQuentity")}
-        />
-        <br />
-        <input
-          class="input input-bordered w-4/5"
-          type="file"
-          {...register("img")}
-          onChange={handelImagUpload}
-        />
-        <br />
-        <input className="btn btn-primary w-3/5 mt-4" type="submit" />
-      </form>
+    <div>
+      <div className="mb-3 px-10">
+        <h1 className="text-center text-3xl text-primary font-bold mb-10">
+          Welcome to admin route
+        </h1>
+      </div>
+      <div className="flex justify-center items-center">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="bg-yellow-300 w-1/2 rounded-lg p-4 text-center"
+        >
+          <input
+            placeholder="your name"
+            className="input input-bordered w-4/5 my-3"
+            {...register("name")}
+          />
+          <br />
+          <input
+            placeholder="discription"
+            className="input input-bordered w-4/5"
+            {...register("discription")}
+          />
+          <br />
+          <input
+            placeholder="per unit price"
+            className="input input-bordered w-4/5 my-3"
+            {...register("perunitPrice")}
+          />
+          <br />
+          <input
+            placeholder="available quentity"
+            className="input input-bordered w-4/5"
+            {...register("availableQuentity")}
+          />
+          <br />
+          <input
+            className="input input-bordered w-4/5"
+            type="file"
+            {...register("img")}
+            onChange={handelImagUpload}
+          />
+          <br />
+          <input className="btn btn-primary w-3/5 mt-4" type="submit" />
+        </form>
+      </div>
     </div>
   );
 };

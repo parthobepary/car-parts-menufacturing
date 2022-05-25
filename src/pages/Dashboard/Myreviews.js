@@ -48,18 +48,18 @@ const Myreviews = () => {
       >
         <input
           placeholder="your name"
-          class="input input-bordered w-4/5"
+          className="input input-bordered w-4/5"
           {...register("name")}
         />
         <br />
         <textarea
           placeholder="comment"
-          class="input input-bordered w-4/5 my-4 h-32"
+          className="input input-bordered w-4/5 my-4 h-32"
           {...register("discription")}
         />
         <br />
         <input
-          class="input input-bordered w-4/5"
+          className="input input-bordered w-4/5"
           type="file"
           {...register("img")}
           onChange={handelImagUpload}

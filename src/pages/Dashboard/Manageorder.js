@@ -18,10 +18,9 @@ const Manageorder = () => {
   return (
     <div>
       <div className="mb-3 px-10">
-        <h1 className="text-center text-3xl text-primary font-bold mb-3">
+        <h1 className="text-center text-3xl text-primary font-bold mb-10">
           Welcome to admin route
         </h1>
-        <hr />
       </div>
       <div>
           {

@@ -15,6 +15,7 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import EditProfile from "./pages/Dashboard/EditProfile";
 import Makeadmin from "./pages/Dashboard/Makeadmin";
 import Manageorder from "./pages/Dashboard/Manageorder";
+import ManageProduct from "./pages/Dashboard/ManageProduct";
 import Myorder from "./pages/Dashboard/Myorder";
 import Myprofile from "./pages/Dashboard/Myprofile";
 import Myreviews from "./pages/Dashboard/Myreviews";
@@ -66,6 +67,14 @@ function App() {
               element={
                 <RequerAdmin>
                   <Addproduct />
+                </RequerAdmin>
+              }
+            ></Route>
+            <Route
+              path="manageproduct"
+              element={
+                <RequerAdmin>
+                  <ManageProduct />
                 </RequerAdmin>
               }
             ></Route>
