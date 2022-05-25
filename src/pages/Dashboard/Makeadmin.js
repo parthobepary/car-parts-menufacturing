@@ -5,7 +5,7 @@ import Alladmin from "./Alladmin";
 
 const Makeadmin = () => {
   const { data, isloading, refetch } = useQuery("user", () =>
-    fetch("http://localhost:5000/users").then((res) => res.json())
+    fetch("https://rocky-fjord-46983.herokuapp.com/users").then((res) => res.json())
   );
   if (isloading) {
     return <Loading></Loading>;

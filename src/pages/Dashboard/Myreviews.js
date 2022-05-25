@@ -11,7 +11,7 @@ const Myreviews = () => {
       ...data,
       img: imgUrl,
     };
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://rocky-fjord-46983.herokuapp.com/reviews", {
       method: "POST",
       headers: {
         "Content-type": "application/json",

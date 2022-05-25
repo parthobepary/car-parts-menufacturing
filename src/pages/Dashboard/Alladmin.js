@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 
 const Alladmin = ({ refetch, user: { email, role, _id } }) => {
   const makeAdmin = () => {
-    fetch(`http://localhost:5000/user/admin/${email}`, {
+    fetch(`https://rocky-fjord-46983.herokuapp.com/user/admin/${email}`, {
       method: "PUT",
       headers: {
         authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -24,7 +24,7 @@ const Alladmin = ({ refetch, user: { email, role, _id } }) => {
   };
 
   const deleteUser = (id) => {
-    fetch(`http://localhost:5000/user/${id}`, {
+    fetch(`https://rocky-fjord-46983.herokuapp.com/user/${id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",

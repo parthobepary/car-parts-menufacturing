@@ -9,7 +9,7 @@ const Order = ({ orders, refetch }) => {
 
   //delete on
   const delteOrder = (id) => {
-    fetch(`http://localhost:5000/order/${id}`, {
+    fetch(`https://rocky-fjord-46983.herokuapp.com/order/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

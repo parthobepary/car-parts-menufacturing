@@ -15,7 +15,7 @@ const Modal = ({ name, availableQuentity, perunitPrice }) => {
   } = useForm();
 
   const onSubmit = (data) => {
-    fetch("http://localhost:5000/order", {
+    fetch("https://rocky-fjord-46983.herokuapp.com/order", {
       method: "POST",
       headers: {
         "Content-type": "application/json",

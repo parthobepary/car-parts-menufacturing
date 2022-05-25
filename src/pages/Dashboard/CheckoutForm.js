@@ -13,7 +13,7 @@ const CheckoutForm = ({ order }) => {
   const [trangationId, setTrangationId] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch("https://rocky-fjord-46983.herokuapp.com/create-payment-intent", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -82,7 +82,7 @@ const CheckoutForm = ({ order }) => {
           transactionId: paymentIntent.id
       }
 
-      fetch(`http://localhost:5000/order/${order._id}`,{
+      fetch(`https://rocky-fjord-46983.herokuapp.com/order/${order._id}`,{
           method:"PUT",
           headers: {
             "content-type": "application/json",

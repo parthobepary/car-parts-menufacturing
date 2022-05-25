@@ -9,7 +9,7 @@ const Myorder = () => {
   const [user] = useAuthState(auth);
 
   const { data, isloading, refetch } = useQuery("review", () =>
-    fetch(`http://localhost:5000/order/${user?.email}`,{
+    fetch(`https://rocky-fjord-46983.herokuapp.com/order/${user?.email}`,{
       method:"GET",
       headers:{
         "authorization": `Bearer ${localStorage.getItem('token')}`

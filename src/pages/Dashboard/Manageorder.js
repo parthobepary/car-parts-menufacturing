@@ -9,7 +9,7 @@ const Manageorder = () => {
   const [user] = useAuthState(auth);
 
   const { data, isloading, refetch } = useQuery("review", () =>
-    fetch("http://localhost:5000/order").then((res) => res.json())
+    fetch("https://rocky-fjord-46983.herokuapp.com/order").then((res) => res.json())
   );
   if (isloading) {
     return <Loading></Loading>;

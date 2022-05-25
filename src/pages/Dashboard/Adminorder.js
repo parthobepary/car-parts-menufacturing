@@ -2,7 +2,7 @@ import React from "react";
 
 const Adminorder = ({refetch, order, order: { name, productName, quntity, _id, paid } }) => {
   const deleteOrder = (id) => {
-    fetch(`http://localhost:5000/order/${id}`, {
+    fetch(`https://rocky-fjord-46983.herokuapp.com/order/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

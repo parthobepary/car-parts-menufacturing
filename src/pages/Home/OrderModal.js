@@ -7,7 +7,7 @@ const OrderModal = () => {
   const [details, setDetails] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/tools/${id}`)
+    fetch(`https://rocky-fjord-46983.herokuapp.com/tools/${id}`)
       .then((res) => res.json())
       .then((data) => setDetails(data[0]));
   }, [id]);

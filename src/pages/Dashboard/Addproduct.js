@@ -11,7 +11,7 @@ const Addproduct = () => {
       ...data,
       img: imgUrl,
     };
-    fetch("http://localhost:5000/tools", {
+    fetch("https://rocky-fjord-46983.herokuapp.com/tools", {
       method: "POST",
       headers: {
         "Content-type": "application/json",

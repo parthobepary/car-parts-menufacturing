@@ -12,7 +12,7 @@ const Myprofile = () => {
   const [user, loading] = useAuthState(auth);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/profile/${user?.email}`)
+    fetch(`https://rocky-fjord-46983.herokuapp.com/profile/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setDatas(data));
   }, [user]);

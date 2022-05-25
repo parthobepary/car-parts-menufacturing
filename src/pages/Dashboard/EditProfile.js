@@ -11,7 +11,7 @@ const EditProfile = () => {
 
   const onSubmit = (data) => {
     const users = { ...data, img: imgUrl };
-    fetch(`http://localhost:5000/profile/${id}`, {
+    fetch(`https://rocky-fjord-46983.herokuapp.com/profile/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

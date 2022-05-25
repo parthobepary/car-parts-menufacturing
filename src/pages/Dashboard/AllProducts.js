@@ -5,7 +5,7 @@ const AllProducts = ({ product, refetch }) => {
   
 
   const deleteProducts = (id) => {
-      fetch(`http://localhost:5000/tools/${id}`,{
+      fetch(`https://rocky-fjord-46983.herokuapp.com/tools/${id}`,{
           method:"DELETE",
           headers:{
               "content-type": "application/json"
