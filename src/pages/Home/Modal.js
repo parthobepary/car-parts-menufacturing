@@ -1,6 +1,7 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 import auth from "../../firebase.init";
 import Loading from "../Shared/Loading";
 
@@ -22,6 +23,11 @@ const Modal = ({ name, availableQuentity, perunitPrice }) => {
       },
       body: JSON.stringify(data),
     });
+    Swal.fire({
+      icon: 'success',
+      title: 'Cogratulation',
+      text: 'Successfull your order',
+    })
     reset();
   };
 

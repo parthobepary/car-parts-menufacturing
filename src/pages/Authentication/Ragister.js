@@ -1,11 +1,12 @@
 import axios from "axios";
 import React, { useState } from "react";
 import {
-    useCreateUserWithEmailAndPassword,
-    useUpdateProfile
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import auth from "../../firebase.init";
 import useToken from "../../hooks/useToken";
 import Loading from "../Shared/Loading";
@@ -39,7 +40,11 @@ const Ragister = () => {
     const pass = data.password;
     await createUserWithEmailAndPassword(email, pass);
     await updateProfile({ displayName: data?.name, photoURL: imgUrl });
-    alert("Updated profile");
+    Swal.fire({
+      icon: 'success',
+      title: 'Cogratulation',
+      text: 'Log in successfull!',
+    })
   };
 
   if (token) {
@@ -128,10 +133,6 @@ const Ragister = () => {
                       required: {
                         value: true,
                         message: "email is required",
-                      },
-                      pattern: {
-                        value: /w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-                        message: "provide a valid email",
                       },
                     })}
                   />

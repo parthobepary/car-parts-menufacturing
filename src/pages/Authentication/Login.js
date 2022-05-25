@@ -1,10 +1,11 @@
 import React from "react";
 import {
-    useSignInWithEmailAndPassword,
-    useSignInWithGoogle
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import auth from "../../firebase.init";
 import useToken from "../../hooks/useToken";
 import Loading from "../Shared/Loading";
@@ -54,6 +55,11 @@ const Login = () => {
   }
   if (token) {
     navigate("/home");
+    Swal.fire({
+      icon: 'success',
+      title: 'Cogratulation',
+      text: 'Log in successfull!',
+    })
   }
 
   return (
@@ -77,11 +83,7 @@ const Login = () => {
                     required: {
                       value: true,
                       message: "email is required",
-                    },
-                    pattern: {
-                      value: /w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-                      message: "provide a valid email",
-                    },
+                    }
                   })}
                 />
                 <label className="label">

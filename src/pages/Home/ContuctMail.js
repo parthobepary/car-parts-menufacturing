@@ -18,7 +18,7 @@ const ContuctMail = () => {
         </div>
         <div className="bg-slate-500 ml-10 rounded-lg p-3">
           <form
-            className="w-2/3 mx-auto mt-40"
+            className=" mt-40"
             onSubmit={handleSubmit(onSubmit)}
           >
             <input

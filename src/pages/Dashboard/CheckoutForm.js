@@ -1,5 +1,6 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 const CheckoutForm = ({ order }) => {
   const total = order?.total;
@@ -27,8 +28,6 @@ const CheckoutForm = ({ order }) => {
         }
       });
   }, [total]);
-
-  console.log(clientSecret);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -78,19 +77,25 @@ const CheckoutForm = ({ order }) => {
 
       //update server
       const payment = {
-          payment: order._id,
-          transactionId: paymentIntent.id
-      }
+        payment: order._id,
+        transactionId: paymentIntent.id,
+      };
 
-      fetch(`https://rocky-fjord-46983.herokuapp.com/order/${order._id}`,{
-          method:"PUT",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(payment),
+      fetch(`https://rocky-fjord-46983.herokuapp.com/order/${order._id}`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(payment),
       })
         .then((res) => res.json())
-        .then((data) => console.log(data));
+        .then((data) => {
+          Swal.fire({
+            icon: "success",
+            title: "Cogratulation",
+            text: "successfull payment!",
+          });
+        });
     }
   };
   return (

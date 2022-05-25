@@ -31,7 +31,7 @@ function App() {
     AOS.init();
   }, []);
   return (
-    <div className="App" data-theme="light">
+    <div  className="App comtainer" data-theme="light">
       <Navbar>
         <Routes>
           <Route path="/" element={<Home />}></Route>

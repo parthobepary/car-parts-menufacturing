@@ -16,7 +16,7 @@ const Tool = ({ isLoading, tool }) => {
   };
   return (
     <div>
-      <div className="card w-96 shadow-xl p-2 bg-slate-400 mx-auto">
+      <div className="card shadow-xl p-2 bg-slate-400 mx-auto">
         <figure className="px-10 pt-10">
           <img src={img} alt="products" className="rounded-xl h-40 w-full" />
         </figure>

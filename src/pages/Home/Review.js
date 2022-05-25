@@ -2,7 +2,7 @@ import React from "react";
 
 const Review = ({ review: { img, name, discription, rating } }) => {
   return (
-    <div className="w-3/4 mx-auto ">
+    <div className="container mx-auto ">
       <div className ="card card-side bg-white shadow-xl m-4 px-3 py-4 grid sm:grid-cols-1 md:grid-cols-2">
         <figure>
           <img className="w-32 h-32 rounded-full" src={img} alt="user" />
