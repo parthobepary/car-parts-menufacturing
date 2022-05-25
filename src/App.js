@@ -31,7 +31,7 @@ function App() {
     AOS.init();
   }, []);
   return (
-    <div  className="App comtainer" data-theme="light">
+    <div className="App comtainer" data-theme="light">
       <Navbar>
         <Routes>
           <Route path="/" element={<Home />}></Route>
@@ -84,7 +84,14 @@ function App() {
           <Route path="/blogs" element={<Blogs />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/ragister" element={<Ragister />}></Route>
-          <Route path="/ordermodal/:id" element={<OrderModal />}></Route>
+          <Route
+            path="/ordermodal/:id"
+            element={
+              <RequerUser>
+                <OrderModal />
+              </RequerUser>
+            }
+          ></Route>
           <Route path="/profile/:id" element={<EditProfile />}></Route>
           <Route path="/payment/:id" element={<Payment />}></Route>
           <Route path="/*" element={<PagenotFount />}></Route>
