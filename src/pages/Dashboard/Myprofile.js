@@ -30,7 +30,7 @@ const Myprofile = () => {
   return (
     <div className="text-center">
       <div className="w-1/2">
-        <img src={datas[0]?.img} alt="" />
+        <img className="w-1/4 mx-auto rounded-full" src={datas[0]?.img} alt="" />
         <h1>user id: {datas[0]?._id}</h1>
         <h1>email: {datas[0]?.email}</h1>
         <h1>user role: {datas[0]?.role}</h1>
