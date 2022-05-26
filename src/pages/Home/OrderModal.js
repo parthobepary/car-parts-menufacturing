@@ -26,12 +26,35 @@ const OrderModal = () => {
           <h4>Available product: {availableQuentity}</h4>
           <h4>Per/Price: {perunitPrice}</h4>
           <p className="text-red-600">Minimum order more then 500</p>
-          <label for="my-modal-3" className="btn modal-button btn-primary px-32">
+          <label
+            for="my-modal-3"
+            className="btn modal-button btn-primary px-32"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6 mr-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+              />
+            </svg>
             Purches
           </label>
         </div>
       </div>
-      {<Modal name={name} availableQuentity={availableQuentity} perunitPrice={perunitPrice} />}
+      {
+        <Modal
+          name={name}
+          availableQuentity={availableQuentity}
+          perunitPrice={perunitPrice}
+        />
+      }
     </div>
   );
 };

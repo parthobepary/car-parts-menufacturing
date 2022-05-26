@@ -22,12 +22,13 @@ const ContuctMail = () => {
             onSubmit={handleSubmit(onSubmit)}
           >
             <input
+            placeholder="enter email"
               type="email"
               className ="input input-bordered w-3/4"
               {...register("email")}
             />
             <br />
-            <textarea className ="my-3 rounded-sm w-3/4" {...register("message")} />
+            <textarea placeholder="text area" className ="p-4 my-3 rounded-sm h-20 w-3/4" {...register("message")} />
             <br />
             <input className="btn btn-primary px-20" type="submit" />
           </form>

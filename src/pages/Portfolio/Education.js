@@ -14,17 +14,13 @@ const Education = () => {
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-1/4 mx-auto"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
+                viewBox="0 0 20 20"
+                fill="currentColor"
               >
-                <path d="M12 14l9-5-9-5-9 5 9 5z" />
-                <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
                 <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
+                  fillRule="evenodd"
+                  d="M10.496 2.132a1 1 0 00-.992 0l-7 4A1 1 0 003 8v7a1 1 0 100 2h14a1 1 0 100-2V8a1 1 0 00.496-1.868l-7-4zM6 9a1 1 0 00-1 1v3a1 1 0 102 0v-3a1 1 0 00-1-1zm3 1a1 1 0 012 0v3a1 1 0 11-2 0v-3zm5-1a1 1 0 00-1 1v3a1 1 0 102 0v-3a1 1 0 00-1-1z"
+                  clipRule="evenodd"
                 />
               </svg>
             </div>
@@ -126,9 +122,27 @@ const Education = () => {
               <hr />
             </div>
             <div>
-                <a className="btn btn-xs btn-secondary" target='blank' href="https://www.facebook.com/">Facebook</a>
-                <a className="btn btn-xs btn-secondary mx-10" target='blank'  href="https://github.com/pallobbiwas">Email</a>
-                <a className="btn btn-xs btn-secondary" target='blank'  href="pallobbiswas326@gmail.com">Github</a>
+              <a
+                className="btn btn-xs btn-secondary"
+                target="blank"
+                href="https://www.facebook.com/"
+              >
+                Facebook
+              </a>
+              <a
+                className="btn btn-xs btn-secondary mx-10"
+                target="blank"
+                href="https://github.com/pallobbiwas"
+              >
+                Email
+              </a>
+              <a
+                className="btn btn-xs btn-secondary"
+                target="blank"
+                href="pallobbiswas326@gmail.com"
+              >
+                Github
+              </a>
             </div>
           </div>
         </div>

@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import {
+  useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
   useSignInWithGoogle
 } from "react-firebase-hooks/auth";
@@ -11,7 +12,10 @@ import useToken from "../../hooks/useToken";
 import Loading from "../Shared/Loading";
 
 const Login = () => {
- 
+  const emailRef = useRef("");
+  const [sendPasswordResetEmail, sending, error] =
+    useSendPasswordResetEmail(auth);
+
   const navigate = useNavigate();
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
@@ -29,6 +33,8 @@ const Login = () => {
     useSignInWithEmailAndPassword(auth);
 
   const [token] = useToken(googleuser || emaiuser);
+  const [forgetEmail, setForgetEmail] = useState("");
+  const [forgetPass, setForgetPass] = useState("");
 
   const googleLogin = () => {
     signInWithGoogle();
@@ -37,8 +43,11 @@ const Login = () => {
   let errorMessage;
 
   const onSubmit = (data) => {
+    console.log(data);
     const email = data.email;
+    setForgetEmail(email);
     const pass = data.password;
+    setForgetPass(pass)
     signInWithEmailAndPassword(email, pass);
   };
 
@@ -54,13 +63,18 @@ const Login = () => {
     return <Loading></Loading>;
   }
   if (token) {
-    navigate("/home");
+    navigate(from);
     Swal.fire({
-      icon: 'success',
-      title: 'Cogratulation',
-      text: 'Log in successfull!',
-    })
+      icon: "success",
+      title: "Cogratulation",
+      text: "Log in successfull!",
+    });
   }
+  const forgetPassword = async () => {
+    console.log(forgetEmail);
+    await sendPasswordResetEmail(forgetEmail);
+    alert("Sent email");
+  };
 
   return (
     <div className="flex h-screen justify-center items-center">
@@ -76,6 +90,7 @@ const Login = () => {
                   <span className="label-text-alt">Email</span>
                 </label>
                 <input
+                  ref={emailRef}
                   type="email"
                   placeholder="your email"
                   className="input input-bordered w-full max-w-xs"
@@ -83,7 +98,7 @@ const Login = () => {
                     required: {
                       value: true,
                       message: "email is required",
-                    }
+                    },
                   })}
                 />
                 <label className="label">
@@ -132,6 +147,14 @@ const Login = () => {
                 </label>
               </div>
               {errorMessage}
+              <div>
+                <p
+                  onClick={forgetPassword}
+                  className="text-blue-600 underline cursor-pointer"
+                >
+                  forgetten password?
+                </p>
+              </div>
               <div className="text-center mt-4">
                 <input
                   className="btn btn-primary w-full"
@@ -143,7 +166,7 @@ const Login = () => {
                 <small>
                   new to here?{" "}
                   <Link className="text-blue-600 underline" to="/ragister">
-                    create new account
+                    create new account?
                   </Link>
                 </small>
               </p>
