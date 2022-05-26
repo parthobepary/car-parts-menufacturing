@@ -1,10 +1,13 @@
 # Tata cars parts .ltd
 
-[Server side githum](https://github.com/facebook/create-react-app).
-[local side githum](https://github.com/facebook/create-react-app).
-[live link](https://github.com/facebook/create-react-app).
+[Server side github](https://github.com/programming-hero-web-course1/manufacturer-website-server-side-pallobbiwas).
+[client side github](https://github.com/programming-hero-web-course1/manufacturer-website-client-side-pallobbiwas).
+[live link](//assignment-12-14077.web.app).
 
 ## Pallob biswas
+
+#admin email:- www.khala@khalu.com
+#admin pass:- 12341234
 
 <ul>
     <li>Car parts menufecturing company</li>
