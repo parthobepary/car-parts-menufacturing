@@ -68,7 +68,7 @@ const Modal = ({ name, availableQuentity, perunitPrice }) => {
                   value={name}
                   placeholder="re type product name"
                   className="mb-3 input input-bordered w-full text-center"
-                  {...register("productName")}
+                  {...register("productName" ,  { required: true })}
                 />
                 <br />
                 <input
@@ -86,10 +86,10 @@ const Modal = ({ name, availableQuentity, perunitPrice }) => {
                 />
                 <br />
                 <input
-                  placeholder="price"
+                  value={perunitPrice}
                   className="mb-3 input input-bordered w-full text-center"
                   type="number"
-                  {...register("total")}
+                  {...register("total",  { required: true })}
                 />
                 <br />
                 <input
